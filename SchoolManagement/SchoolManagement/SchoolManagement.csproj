@@ -74,6 +74,7 @@
     <Content Include="Admin\ClassFees.aspx" />
     <Content Include="Admin\Subject.aspx" />
     <Content Include="Admin\Teacher.aspx" />
+    <Content Include="Admin\TeacherSubject.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -236,6 +237,13 @@
     </Compile>
     <Compile Include="Admin\Teacher.aspx.designer.cs">
       <DependentUpon>Teacher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\TeacherSubject.aspx.cs">
+      <DependentUpon>TeacherSubject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\TeacherSubject.aspx.designer.cs">
+      <DependentUpon>TeacherSubject.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
