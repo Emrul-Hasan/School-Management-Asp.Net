@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div style="background-image: url('../Image/adminBackground.jpg'); width: 100%; height: 720px; background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+    <div style= width: 100%; height: 720px; background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
         <div class="container p-md-4 p-sm-4">
             <div>
                 <asp:Label ID="lblMsg" runat="server"></asp:Label>
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div class="row mb-3 mr-lg-5 ml-lg-5">
-                <div class="col-md-9">
+                <div class="col-md-12">
                      <asp:GridView ID="GridView1" runat="server" CssClass="table table-hover table-bordered" EmptyDataText="No data Found" 
                         AllowPaging="True" PageSize="4" DataKeyNames="TeacherId" AutoGenerateColumns="False" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCancelingEdit="GridView1_RowCancelingEdit" 
                         OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowDeleting="GridView1_RowDeleting" >
@@ -124,7 +124,7 @@
 
                               <asp:TemplateField HeaderText="Address">
                                 <EditItemTemplate>
-                                    <asp:TextBox ID="txtAddress" runat="server" Text='<%# Eval("Address") %>' CssClass="form-control" Width="100px"></asp:TextBox>
+                                    <asp:TextBox ID="txtAddress" runat="server" Text='<%# Eval("Address") %>' CssClass="form-control" Width="100px" TextMode="MultiLine"></asp:TextBox>
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="lblAddress" runat="server" Text='<%# Eval("Address") %>'></asp:Label>

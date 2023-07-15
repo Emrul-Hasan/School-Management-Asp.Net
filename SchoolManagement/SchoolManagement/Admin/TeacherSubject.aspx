@@ -46,7 +46,7 @@
                 <div class="col-md-9">
                      <asp:GridView ID="GridView1" runat="server" CssClass="table table-hover table-bordered" EmptyDataText="No data Found" 
                         AllowPaging="True" PageSize="4" DataKeyNames="Id" AutoGenerateColumns="False" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCancelingEdit="GridView1_RowCancelingEdit" 
-                        OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowDeleting="GridView1_RowDeleting" >
+                        OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowDeleting="GridView1_RowDeleting" OnRowDataBound="GridView1_RowDataBound" >
                         <Columns>
                             <asp:BoundField DataField="Sr.No" HeaderText="Sr.No" ReadOnly="True">                  
                             <ItemStyle HorizontalAlign="Center" />
@@ -55,7 +55,7 @@
                             <asp:TemplateField HeaderText="Class">
                                 <EditItemTemplate>
                                     <asp:DropDownList ID="ddlClassGv" runat="server" DataSourceID="SqlDataSource1" CssClass="form-control" DataTextField="ClassName" 
-                                       AutoPostBack="true"  DataValueField="ClassId" SelectedValue='<%# Eval("ClassId") %>'>
+                                       AutoPostBack="true"  DataValueField="ClassId" SelectedValue='<%# Eval("ClassId") %>' OnSelectedIndexChanged="ddlClassGv_SelectedIndexChanged">
                                         <asp:ListItem>Select Class</asp:ListItem>
                                     </asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SchoolCS %>" SelectCommand="SELECT * FROM [Class]"></asp:SqlDataSource>
@@ -68,16 +68,14 @@
 
                             <asp:TemplateField HeaderText="Subject">
                                 <EditItemTemplate>
-                                    <asp:DropDownList ID="ddlSubjectGv" runat="server" CssClass="form-control"></asp:DropDownList>
+                                    <asp:DropDownList ID="ddlSubjectGv" runat="server" CssClass="form-control" ></asp:DropDownList>
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="Label1" runat="server" Text='<%# Eval("SubjectName") %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />
                             </asp:TemplateField>
-                            <asp:CommandField CausesValidation="false" HeaderText="Action" ShowEditButton="True">
-                            <ItemStyle HorizontalAlign="Center" />
-                            </asp:CommandField>
+                         
 
                              <asp:TemplateField HeaderText="Teacher">
                                 <EditItemTemplate>
@@ -92,6 +90,10 @@
 
                                 <ItemStyle HorizontalAlign="Center" />
                             </asp:TemplateField>
+
+                               <asp:CommandField CausesValidation="false" HeaderText="Action" ShowEditButton="True" ShowDeleteButton="true" >
+                            <ItemStyle HorizontalAlign="Center" />
+                            </asp:CommandField>
                         </Columns>
                           <HeaderStyle BackColor="#558C9" ForeColor="White" />
                     </asp:GridView>
