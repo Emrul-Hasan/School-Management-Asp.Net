@@ -20,19 +20,18 @@
 
                 <div class="col-md-6">
                     <label for="ddlSubject">Subject</label>
-                     <asp:DropDownList ID="ddlSubject" CssClass="form-control" runat="server"
-                        OnSelectedIndexChanged="ddlClass_SelectedIndexChanged" ></asp:DropDownList>
+                     <asp:DropDownList ID="ddlSubject" CssClass="form-control" runat="server" ></asp:DropDownList>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Subject is required."
-                       Display="Dynamic" ForeColor="#CC3300" InitialValue="Select Subject" SetFocusOnError="True">
+                     ControlToValidate="ddlSubject"   Display="Dynamic" ForeColor="#CC3300" InitialValue="Select Subject" SetFocusOnError="True">
                     </asp:RequiredFieldValidator>
 
                 </div>
 
                   <div class="col-md-6">
-                    <label for="ddlTeacher">Subject</label>
+                    <label for="ddlTeacher">Teacher</label>
                      <asp:DropDownList ID="ddlTeacher" CssClass="form-control" runat="server" ></asp:DropDownList>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Teacher is required."
-                        ControlToValidate="ddlTeacher" Display="Dynamic" ForeColor="#CC3300" InitialValue="Select Subject" SetFocusOnError="True">
+                        ControlToValidate="ddlTeacher" Display="Dynamic" ForeColor="#CC3300" InitialValue="Select Teacher" SetFocusOnError="True">
                     </asp:RequiredFieldValidator>
 
                 </div>
@@ -46,8 +45,8 @@
             <div class="row mb-3 mr-lg-5 ml-lg-5">
                 <div class="col-md-9">
                      <asp:GridView ID="GridView1" runat="server" CssClass="table table-hover table-bordered" EmptyDataText="No data Found" 
-                        AllowPaging="True" PageSize="4" DataKeyNames="SubjectId" AutoGenerateColumns="False" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCancelingEdit="GridView1_RowCancelingEdit" 
-                        OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" >
+                        AllowPaging="True" PageSize="4" DataKeyNames="Id" AutoGenerateColumns="False" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCancelingEdit="GridView1_RowCancelingEdit" 
+                        OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowDeleting="GridView1_RowDeleting" >
                         <Columns>
                             <asp:BoundField DataField="Sr.No" HeaderText="Sr.No" ReadOnly="True">                  
                             <ItemStyle HorizontalAlign="Center" />
@@ -88,7 +87,7 @@
                                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:SchoolCS %>" SelectCommand="SELECT [TeacherId], [Name] FROM [Teacher]"></asp:SqlDataSource>
                                 </EditItemTemplate>
                                 <ItemTemplate>
-                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("ClassName") %>'></asp:Label>
+                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
                                 </ItemTemplate>
 
                                 <ItemStyle HorizontalAlign="Center" />
